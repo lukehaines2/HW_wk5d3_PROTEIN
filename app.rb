@@ -12,19 +12,19 @@ class Powder < Sinatra::Base
   # RESTful Protein Controller Actions
   # index
   get '/proteins' do
-    @proteins = protein.all
+    @proteins = Protein.all
     erb(:"proteins/index")
   end
 
   # new
   get '/proteins/new' do
-    @protein = protein.new
+    @proteins = Protein.new
     erb(:"proteins/new")
   end
 
   # create
   post '/proteins' do
-    @protein = protein.new(params[:protein])
+    @protein = Protein.new(params[:protein])
     if @protein.save
       redirect("/proteins/#{@protein.id}")
     else
@@ -34,33 +34,33 @@ class Powder < Sinatra::Base
 
   # show
   get '/proteins/:id' do
-    @protein = protein.find(params[:id])
+    @protein = Protein.find(params[:id])
     erb(:"proteins/show")
   end
 
   # edit
   get '/proteins/:id/edit' do
-    @protein = protein.find(params[:id])
+    @protein = Protein.find(params[:id])
     erb(:"proteins/edit")
   end
 
   # update
-  put '/proteins/:id' do
-    @protein = protein.find(params[:id])
+  post '/proteins/:id' do
+    @protein = Protein.find(params[:id])
     if @protein.update_attributes(params[:protein])
-      redirect("/proteins/#{protein.id}")
+      redirect("/proteins/#{@protein.id}")
     else
       erb(:"proteins/edit")
     end
   end
 
   # delete
-  delete '/proteins/:id/delete' do
-    @protein = protein.find(params[:id])
+  post '/proteins/:id/delete' do
+    @protein = Protein.find(params[:id])
     if @protein.destroy
       redirect('/proteins')
     else
-      redirect("/proteins/#{@protein.id}")
+      redirect("/proteins/#{@protein.id}") 
     end
   end
 
