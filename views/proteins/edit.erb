@@ -1,0 +1,17 @@
+<h2>Edit Protein</h2>
+
+<form action='/proteins/<%= "#{@protein.id}" %>' method="post">
+  <label for="protein[name]">Name:</label>
+  <input name="protein[name]" value='<%= "#{@protein.name}" %>'>
+
+  <label for="protein[photo_url]">Photo URL:</label>
+  <input name="protein[photo_url]" value='<%= "#{@protein.photo_url}" %>'>
+
+  <label for="protein[brand]">Brand:</label>
+  <input name="protein[brand]" value='<%= "#{@protein.brand}" %>'>
+
+  <label for="protein[gains]">Gains:</label>
+  <input name="protein[gains]" value='<%= "#{@protein.gains}" %>'>
+
+  <input type="submit" value="Create">
+</form>
