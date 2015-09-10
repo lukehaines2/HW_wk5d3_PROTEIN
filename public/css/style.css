@@ -19,7 +19,6 @@ h2 {
 
 h3 {
   font-size: 18px;
-  text-decoration: underline;
 }
 
 a {
@@ -28,7 +27,7 @@ a {
 
 header {
   width: 100%;
-  background: black;
+  background: #008BC0;
 }
 
 header nav { 
