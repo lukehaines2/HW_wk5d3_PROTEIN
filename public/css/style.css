@@ -25,6 +25,15 @@ a {
   color: #000;
 }
 
+#navtitle {
+  color: blue;
+  font-size: 40px;
+}
+
+#describe {
+  font-size: 15px;
+}
+
 header {
   width: 100%;
   background: #008BC0;
